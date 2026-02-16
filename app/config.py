@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 
+from openai import OpenAI
 GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
 load_dotenv(override=True)
@@ -13,3 +14,5 @@ elif not google_api_key.startswith("AIz"):
     print("An API key was found, but it doesn't start AIz")
 else:
     print("API key found and looks good so far!")
+
+gemini = OpenAI(api_key=google_api_key, base_url=GEMINI_BASE_URL)
